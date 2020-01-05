@@ -1,7 +1,7 @@
 const post = require("../model/post")
 
 //function for adding post
-exports.addpost =(req, res) => {
+exports. addpost =(req, res) => {
     const Post = new post(
         req.body)
         Post.save().then(function( ){

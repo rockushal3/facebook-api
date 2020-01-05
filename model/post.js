@@ -16,7 +16,7 @@ const post = mongoose.model('Post', {
         type: String,
         require:true,
         trim: true
-    },
+    }
     
     
   })

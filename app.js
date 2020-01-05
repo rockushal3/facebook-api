@@ -1,8 +1,10 @@
 require("./db/dbsetting")
 const express = require('express')
 const bodyparser = require("body-parser")
+const path = require("path");
 const app = express()
-
+const publicdirectory= path.join(__dirname,'public');
+app.use(express.static(publicdirectory));
 
 //Routers
 const UserRoute = require("./router/userRouter")
@@ -14,4 +16,6 @@ app.use(bodyparser.json())
 app.use(express.json())
 app.use(UserRoute)
 app.use(PostRoute)
-app.listen(3000)
+
+const port= process.env.PORT || 3030;
+app.listen(port)

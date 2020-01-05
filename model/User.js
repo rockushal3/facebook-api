@@ -4,11 +4,10 @@ const user =new  mongoose.Schema({
     name: {
         type: String,
         require:true,
-        trin: true
+        trim: true
     },
     address:{
             type: String,
-            require:true,
             trim: true
         },  
     phone :{
@@ -36,10 +35,6 @@ const user =new  mongoose.Schema({
             require:true,
             trim: true
         },  
-    image:{
-            type:String,
-            trim:true
-        },
     tokens:[{
         token:{
             type:String,
@@ -54,6 +49,7 @@ const user =new  mongoose.Schema({
       return userCheck
   }
 
+  
   user.methods.generateAuthToken = async function () {
     const userAuth = this
    const token = jwt.sign({ _id: userAuth._id.toString() }, 'thisismynewcourse')
