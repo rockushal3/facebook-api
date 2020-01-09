@@ -1,8 +1,10 @@
 const express = require("express")
+const auth = require('../middleware/auth');
 const router = express.Router()
+const upload = require('../controller/uploadfile');
 const postController = require("../controller/postController")
-router.post("/createpost",postController.addpost)
-router.get("/findpost",postController.findpost)
+router.post("/createpost",[upload,auth],postController.addpost)
+router.get("/findpost",auth,postController.findpost)
 router.get("/findpostById/:_id",postController.findpostById)
 
 module.exports = router

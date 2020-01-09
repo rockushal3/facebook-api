@@ -2,12 +2,20 @@ const post = require("../model/post")
 
 //function for adding post
 exports. addpost =(req, res) => {
-    const Post = new post(
-        req.body)
-        Post.save().then(function( ){
-            res.send("post has been added")
-        }).catch(function(e){
-            res.send(e)
+    
+        
+        req.files.map(function(items){
+            const Post = new post({
+                status:req.body.status,
+                name:req.body.name,
+                image:items.filename
+            }
+            )
+                Post.save().then(function( ){
+                    res.send("post has been added")
+                }).catch(function(e){
+                    res.send(e)
+                })
         })
     }
 

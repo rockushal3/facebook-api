@@ -17,5 +17,5 @@ app.use(express.json())
 app.use(UserRoute)
 app.use(PostRoute)
 
-const port= process.env.PORT || 3030;
-app.listen(port)
+
+app.listen("3030")
